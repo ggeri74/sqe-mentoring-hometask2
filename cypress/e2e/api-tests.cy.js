@@ -1,4 +1,4 @@
-describe("POST request test", () => {
+describe("API tests", () => {
 
   const authHeader = "Bearer ae45dfa0e871e65f3c9978083274d9c6c406989da91fe63aee244bd99b42a3b0";
   const baseUrl = "https://gorest.co.in/public/v2/users/";
