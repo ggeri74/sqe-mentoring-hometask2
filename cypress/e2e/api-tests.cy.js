@@ -8,7 +8,7 @@ describe("API tests", () => {
   const gender = "male";
   const status = "active";
 
-  it("Creates a new user", () => {
+  it("POST Creates a new user", () => {
     cy.request({
       method: "POST",
       url: baseUrl,
@@ -33,7 +33,7 @@ describe("API tests", () => {
     });
   });
 
-  it("Retrieves the user data", () => {
+  it("GET Retrieves the user data", () => {
     cy.request({
       method: "GET",
       url: baseUrl + userId,
@@ -50,7 +50,7 @@ describe("API tests", () => {
     });
   });
 
-  it("Updates the user status to inactive", () => {
+  it("PATCH Updates the user status to inactive", () => {
     cy.request({
       method: "PATCH",
       url: baseUrl + userId,
@@ -66,7 +66,7 @@ describe("API tests", () => {
     });
   });
 
-  it("Deletes the user", () => {
+  it("DELETE Deletes the user", () => {
     cy.request({
       method: "DELETE",
       url: baseUrl + userId,
