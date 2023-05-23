@@ -41,7 +41,7 @@ describe("API tests", () => {
 
   describe("Testing the /users resource", () => {
 
-    it("GET Retrieves the user created in the Before hook", () => {
+    it("[GET] Retrieves the user created in the Before hook", () => {
       cy.request({
         method: "GET",
         url: baseUrl + "users/" + userId,
@@ -59,9 +59,8 @@ describe("API tests", () => {
       });
     });
 
-    it("PATCH Updates the user name", () => {
+    it("[PATCH] Updates the user name", () => {
       let updatedName = "Legkisebb Ugrifules";
-      cy.log("userId: " + userId);
       cy.request({
         method: "PATCH",
         url: baseUrl + "users/" + userId,
@@ -84,7 +83,7 @@ describe("API tests", () => {
     const body = "With Cypress, you can easily create tests for your modern web applications, debug them visually, and automatically run them in your continuous integration builds."
     let postId;
 
-    it("POST Creates a new post by the user", () => {
+    it("[POST] Creates a new post by the user", () => {
       cy.request({
         method: "POST",
         url: baseUrl + "users/" + userId + "/posts",
@@ -97,12 +96,12 @@ describe("API tests", () => {
           Authorization: authHeader
         }
       }).then((response) => {
-        expect(response.status).to.equal(201);
+        expect(response.status).to.eq(201);
         postId = response.body.id;
       });
     });
 
-    it("GET Retrieves the post created by the user", () => {
+    it("[GET] Retrieves the post created by the user", () => {
       cy.request({
         method: "GET",
         url: baseUrl + "users/" + userId + "/posts",
